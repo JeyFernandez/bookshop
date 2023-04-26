@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString } from "class-validator";
+import { IsArray, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
 
 export class CreateLibroDto {
     @IsString()
@@ -8,4 +8,21 @@ export class CreateLibroDto {
     @IsString()
     @IsNotEmpty()
     description: string;
+
+    @IsString()
+    @IsNotEmpty()
+    author: string;
+
+    @IsNumber()
+    @IsNotEmpty()
+    price:number;
+
+    @IsNumber()
+    @IsNotEmpty()
+    stock:number;
+
+    @IsString({each:true})
+    @IsArray()
+    @IsOptional()
+    iamges?:string[];
 }

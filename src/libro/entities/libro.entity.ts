@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { LibroImagen } from './linbroImg.entity';
 
 @Entity()
 export class Libro {
@@ -10,4 +11,20 @@ export class Libro {
 
     @Column()
     description: string;
+
+    @Column()
+    author: string;
+
+    @Column()
+    price: number;
+
+    @Column()
+    stock: number;
+
+    @OneToMany(
+        ()=>LibroImagen,
+        (libroImage)=> libroImage.libro,
+        {cascade:true}
+    )
+    images?:LibroImagen[];
 }
