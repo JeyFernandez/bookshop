@@ -24,7 +24,7 @@ export class Libro {
     @OneToMany(
         ()=>LibroImagen,
         (libroImage)=> libroImage.libro,
-        {cascade:true}
+        {onDelete:'CASCADE'}
     )
     images?:LibroImagen[];
 }

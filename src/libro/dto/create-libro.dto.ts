@@ -24,5 +24,5 @@ export class CreateLibroDto {
     @IsString({each:true})
     @IsArray()
     @IsOptional()
-    iamges?:string[];
+    images?:string[];
 }
